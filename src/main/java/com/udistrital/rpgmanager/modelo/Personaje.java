@@ -23,6 +23,10 @@ public Personaje(String nombre,int id, int nivel,int vida,String clase) {
         this.vida=vida;
         this.clase=clase;
 }
+
+    public Personaje(String nombre, String clase, int nivel) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 //getters y setters
 public String getNombre() {
         return nombre;

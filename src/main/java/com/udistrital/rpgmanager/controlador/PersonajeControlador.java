@@ -15,13 +15,17 @@ public class PersonajeControlador {
   private PersonajeRepositorio repositorio = new PersonajeRepositorio();  
 public void obtenerTodos(Context ctx) {
         
-        ctx.json(repositorio.obtenerTodos());
+        ctx.redirect("/index.html");
 }
 // Ruta POST: Guardar un personaje nuevo que viene en el cuerpo (body) de la petición
     public void crear(Context ctx) {
-        // ctx.bodyAsClass convierte el JSON que envía el usuario a un objeto Personaje de Java
-        Personaje nuevoPersonaje = ctx.bodyAsClass(Personaje.class);
+        
+        String nombre = ctx.formParam("nombre");
+        String clase = ctx.formParam("clase");
+        int nivel = Integer.parseInt(ctx.formParam("nivel"));
+        
+        Personaje nuevoPersonaje = new Personaje(nombre, clase, nivel);
         repositorio.guardar(nuevoPersonaje);
-        ctx.status(201).json(nuevoPersonaje);
+        ctx.redirect("/index.html");
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>RPG Manager - Personajes</title>
+</head>
+<body>
+    <h1>Lista de Personajes</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Clase</th>
+                <th>Nivel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>pablo</td>
+                <td>brujo</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+<h2>Crear Nuevo Personaje</h2>
+<form action="/personajes" method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required><br><br>
+
+    <label>Clase:</label>
+    <input type="text" name="clase" required><br><br>
+
+    <label>Nivel:</label>
+    <input type="number" name="nivel" required><br><br>
+
+    <button type="submit">Guardar Personaje</button>
+</form>
+</body>
+</html>

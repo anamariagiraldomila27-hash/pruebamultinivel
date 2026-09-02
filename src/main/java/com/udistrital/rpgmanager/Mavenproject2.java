@@ -19,7 +19,9 @@ public class Mavenproject2 {
         PersonajeControlador controlador = new PersonajeControlador();
 
         // Iniciamos el servidor en el puerto 7070
-        Javalin app = Javalin.create().start(7071);
+        Javalin app = Javalin.create(config -> {
+            config.staticFiles.add("/public");
+        }).start (7071);
 
         // Definimos las rutas web mapeadas a los métodos del controlador
         app.get("/personajes", controlador::obtenerTodos);
