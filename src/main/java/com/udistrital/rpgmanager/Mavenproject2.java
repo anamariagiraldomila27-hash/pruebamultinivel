@@ -4,6 +4,9 @@
 
 package com.udistrital.rpgmanager;
 
+import com.udistrital.rpgmanager.controlador.PersonajeControlador;
+import io.javalin.Javalin;
+
 /**
  *
  * @author AnaGiraldo
@@ -11,6 +14,15 @@ package com.udistrital.rpgmanager;
 public class Mavenproject2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        // Instanciamos el controlador
+        PersonajeControlador controlador = new PersonajeControlador();
+
+        // Iniciamos el servidor en el puerto 7070
+        Javalin app = Javalin.create().start(7071);
+
+        // Definimos las rutas web mapeadas a los métodos del controlador
+        app.get("/personajes", controlador::obtenerTodos);
+        app.post("/personajes", controlador::crear);
     }
 }
